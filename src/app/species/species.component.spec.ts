@@ -19,7 +19,7 @@ describe('SpeciesComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('It should create Species component', () => {
+    expect(component instanceof SpeciesComponent).toBeTruthy();
   });
 });

@@ -19,7 +19,7 @@ describe('FilmsComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('It should create Films component', () => {
+    expect(component instanceof FilmsComponent).toBeTruthy();
   });
 });

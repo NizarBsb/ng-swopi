@@ -19,7 +19,7 @@ describe('PlanetsComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('Should create Planets component', () => {
+    expect(component instanceof PlanetsComponent).toBeTruthy();
   });
 });

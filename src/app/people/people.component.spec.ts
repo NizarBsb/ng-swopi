@@ -19,7 +19,7 @@ describe('PeopleComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('It should create People component', () => {
+    expect(component instanceof PeopleComponent).toBeTruthy();
   });
 });
