@@ -14,6 +14,8 @@ import { SpeciesComponent } from './species/species.component';
 import { StarshipsComponent } from './starships/starships.component';
 import { VehiclesComponent } from './vehicles/vehicles.component';
 
+import { StarWarsService } from './star-wars.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,8 +32,7 @@ import { VehiclesComponent } from './vehicles/vehicles.component';
     HttpClientModule,
     AppRoutingModule,
   ],
-  providers: [
-  ],
+  providers: [ StarWarsService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

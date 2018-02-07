@@ -3,7 +3,7 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 
 import { StarWarsService } from './star-wars.service';
 
-describe('StarWarsService', () => {
+describe('StarWarsServiceTest', () => {
 
   let swService: StarWarsService;
   let httpMock: HttpTestingController;

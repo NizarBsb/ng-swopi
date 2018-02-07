@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StarWarsService } from '../star-wars.service';
 
 @Component({
   selector: 'app-vehicles',
@@ -7,9 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VehiclesComponent implements OnInit {
 
-  constructor() { }
+  /**
+   * Constructor.
+   * @param {StarWarsService} swService
+   */
+  constructor(private swService: StarWarsService) { }
 
   ngOnInit() {
+    this.fetchVehicles();
+  }
+
+  /**
+   * Called once the view is initialized
+   * to fetch the vehicles.
+   */
+  fetchVehicles() {
+    this.swService.getVehicles().subscribe((response) => {
+    })
   }
 
 }

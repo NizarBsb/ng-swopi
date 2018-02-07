@@ -10,7 +10,7 @@ import { SpeciesComponent } from './species/species.component';
 import { StarshipsComponent } from './starships/starships.component';
 import { VehiclesComponent } from './vehicles/vehicles.component';
 
-describe('AppComponent', () => {
+describe('AppComponentTest', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({

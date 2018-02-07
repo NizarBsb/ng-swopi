@@ -20,7 +20,7 @@ export class StarWarsService {
    * Fetch films from the API.
    * @returns {Observable<Object>}
    */
-  getFilms<T>() {
+  public getFilms<T>() {
     return this.httpClient.get<T>(`${this.swopiUrl}films/`);
   }
 
@@ -28,7 +28,7 @@ export class StarWarsService {
    * Fetch people from the API.
    * @returns {Observable<Object>}
    */
-  getPeople<T>() {
+  public getPeople<T>() {
     return this.httpClient.get<T>(`${this.swopiUrl}people/`);
   }
 
@@ -36,7 +36,7 @@ export class StarWarsService {
    * Fetch planets from the API.
    * @returns {Observable<Object>}
    */
-  getPlanets<T>() {
+  public getPlanets<T>() {
     return this.httpClient.get<T>(`${this.swopiUrl}planets/`);
   }
 
@@ -44,7 +44,7 @@ export class StarWarsService {
    * Fetch species from the API.
    * @returns {Observable<Object>}
    */
-  getSpecies<T>() {
+  public getSpecies<T>() {
     return this.httpClient.get<T>(`${this.swopiUrl}species/`);
   }
 
@@ -52,7 +52,7 @@ export class StarWarsService {
    * Fetch starships from the API.
    * @returns {Observable<Object>}
    */
-  getStarships<T>() {
+  public getStarships<T>() {
     return this.httpClient.get<T>(`${this.swopiUrl}starships/`);
   }
 
@@ -60,7 +60,7 @@ export class StarWarsService {
    * Fetch vehicles from the API.
    * @returns {Observable<Object>}
    */
-  getVehicles<T>() {
+  public getVehicles<T>() {
     return this.httpClient.get<T>(`${this.swopiUrl}vehicles/`);
   }
 
