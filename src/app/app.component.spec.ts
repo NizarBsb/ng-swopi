@@ -4,11 +4,12 @@ import { RouterModule } from '@angular/router';
 import { routes } from './app-routing.module';
 import { APP_BASE_HREF } from '@angular/common';
 import { FilmsComponent } from './films/films.component'
-import { PeopleComponent}  from './people/people.component';
+import { PeopleComponent} from './people/people.component';
 import { PlanetsComponent } from './planets/planets.component';
 import { SpeciesComponent } from './species/species.component';
 import { StarshipsComponent } from './starships/starships.component';
 import { VehiclesComponent } from './vehicles/vehicles.component';
+import { MaterialModule } from './material.module';
 
 describe('AppComponentTest', () => {
 
@@ -24,6 +25,7 @@ describe('AppComponentTest', () => {
         VehiclesComponent
       ],
       imports: [
+        MaterialModule,
         RouterModule.forRoot(routes)
       ],
       providers: [

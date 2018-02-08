@@ -6,7 +6,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor() {
 
+  navLinks: any[];
+
+  /**
+   * Constructor.
+   */
+  constructor() {
+    this.navLinks = [
+      { path: 'films', label: 'Films' },
+      { path: 'people', label: 'People' },
+      { path: 'planets', label: 'Planets' },
+      { path: 'species', label: 'Species' },
+      { path: 'starships', label: 'Starships' },
+      { path: 'vehicles', label: 'Vehicles' }
+    ];
   }
+
 }

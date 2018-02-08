@@ -1,12 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { StarWarsService } from '../star-wars.service';
+import { DataSource } from '@angular/cdk/collections';
+import { Observable } from 'rxjs/Observable';
+import { FilmModel } from './film.model';
 
 @Component({
   selector: 'app-films',
   templateUrl: './films.component.html',
   styleUrls: ['./films.component.css']
 })
-export class FilmsComponent implements OnInit {
+export class FilmsComponent {
+
+  dataSource = new FilmDataSource(this.swService);
+
+  displayedColumns = ['created', 'director', 'edited', 'episode_id'];
 
   /**
    * Constructor.
@@ -14,17 +21,22 @@ export class FilmsComponent implements OnInit {
    */
   constructor(private swService: StarWarsService) { }
 
-  ngOnInit() {
-    this.fetchFilms();
-  }
+}
+
+export class FilmDataSource extends DataSource<any> {
 
   /**
-   * Called once the view is initialized
-   * to fetch the films.
+   * Constructor.
+   * @param {StarWarsService} swService
    */
-  private fetchFilms() {
-    this.swService.getFilms().subscribe((response) => {
-    });
+  constructor(private swService: StarWarsService) {
+    super();
   }
+
+  connect(): Observable<FilmModel[]> {
+    return this.swService.getFilms()
+  }
+
+  disconnect() {}
 
 }

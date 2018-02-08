@@ -1,3 +1,22 @@
-<p>
-  films works!
-</p>
+<div>
+    <mat-table [dataSource]="dataSource">
+        <ng-container matColumnDef="created">
+            <mat-header-cell *matHeaderCellDef> Created </mat-header-cell>
+            <mat-cell *matCellDef="let film"> {{film.created}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="director">
+            <mat-header-cell *matHeaderCellDef> Director </mat-header-cell>
+            <mat-cell *matCellDef="let film"> {{film.director}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="edited">
+            <mat-header-cell *matHeaderCellDef> Edited </mat-header-cell>
+            <mat-cell *matCellDef="let film"> {{film.edited}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="episode_id">
+            <mat-header-cell *matHeaderCellDef> Episode ID</mat-header-cell>
+            <mat-cell *matCellDef="let film"> {{film.episode_id}} </mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row;columns: displayedColumns;"></mat-row>
+    </mat-table>
+</div>

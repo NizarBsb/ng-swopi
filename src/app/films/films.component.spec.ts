@@ -12,7 +12,7 @@ describe('FilmsComponentTest', () => {
       declarations: [
         FilmsComponent
       ],
-      imports: [ HttpClientModule ],
+      imports: [ HttpClientModule],
       providers: [ StarWarsService ]
     })
       .compileComponents();

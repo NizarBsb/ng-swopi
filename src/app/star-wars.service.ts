@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
+import { FilmModel } from './films/film.model';
 
 @Injectable()
 export class StarWarsService {
@@ -18,10 +20,10 @@ export class StarWarsService {
 
   /**
    * Fetch films from the API.
-   * @returns {Observable<Object>}
+   * @returns {Observable<FilmModel[]>}
    */
-  public getFilms<T>() {
-    return this.httpClient.get<T>(`${this.swopiUrl}films/`);
+  getFilms(): Observable<FilmModel[]> {
+    return this.httpClient.get<FilmModel[]>(`${this.swopiUrl}films/`);
   }
 
   /**
