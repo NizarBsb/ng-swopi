@@ -4,14 +4,6 @@
       <mat-header-cell *matHeaderCellDef> Birthday </mat-header-cell>
       <mat-cell *matCellDef="let people"> {{people.birth_year}} </mat-cell>
     </ng-container>
-    <ng-container matColumnDef="created">
-      <mat-header-cell *matHeaderCellDef> Created </mat-header-cell>
-      <mat-cell *matCellDef="let people"> {{people.created}} </mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="edited">
-      <mat-header-cell *matHeaderCellDef> Edited </mat-header-cell>
-      <mat-cell *matCellDef="let people"> {{people.edited}} </mat-cell>
-    </ng-container>
     <ng-container matColumnDef="eye_color">
       <mat-header-cell *matHeaderCellDef> Eye color</mat-header-cell>
       <mat-cell *matCellDef="let people"> {{people.eye_color}} </mat-cell>

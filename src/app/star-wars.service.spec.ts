@@ -25,12 +25,16 @@ describe('StarWarsServiceTest', () => {
   it('It should perform a GET request to fetch all films successfully', () => {
 
     swService.getFilms().subscribe((data: any) => {
+      console.log(data);
+      expect(data.next).toEqual(null)
     });
+
 
     const req = httpMock.expectOne('https://swapi.co/api/films/', '/GET - all films');
     expect(req.request.method).toBe('GET');
 
     req.flush({
+      next: null
     });
 
     httpMock.verify();

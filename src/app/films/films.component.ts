@@ -3,6 +3,7 @@ import { StarWarsService } from '../star-wars.service';
 import { DataSource } from '@angular/cdk/collections';
 import { Observable } from 'rxjs/Observable';
 import { FilmModel } from './film.model';
+import 'rxjs/add/operator/map';
 
 @Component({
   selector: 'app-films',
@@ -13,7 +14,15 @@ export class FilmsComponent {
 
   dataSource = new FilmDataSource(this.swService);
 
-  displayedColumns = ['created', 'director', 'edited', 'episode_id'];
+  displayedColumns = [
+    'director',
+    'episode_id',
+    'opening_crawl',
+    'producer',
+    'release_date',
+    'title',
+    'url'
+  ];
 
   /**
    * Constructor.
@@ -34,7 +43,9 @@ export class FilmDataSource extends DataSource<any> {
   }
 
   connect(): Observable<FilmModel[]> {
-    return this.swService.getFilms()
+    return this.swService.getFilms().map(
+      data => data['results']
+    );
   }
 
   disconnect() {}

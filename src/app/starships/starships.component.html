@@ -12,17 +12,9 @@
       <mat-header-cell *matHeaderCellDef> Consumables</mat-header-cell>
       <mat-cell *matCellDef="let starships"> {{starships.classification}} </mat-cell>
     </ng-container>
-    <ng-container matColumnDef="created">
-      <mat-header-cell *matHeaderCellDef> Created</mat-header-cell>
-      <mat-cell *matCellDef="let starships"> {{starships.created}} </mat-cell>
-    </ng-container>
     <ng-container matColumnDef="crew">
       <mat-header-cell *matHeaderCellDef> Crew</mat-header-cell>
       <mat-cell *matCellDef="let starships"> {{starships.crew}} </mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="edited">
-      <mat-header-cell *matHeaderCellDef> Edited</mat-header-cell>
-      <mat-cell *matCellDef="let starships"> {{starships.edited}} </mat-cell>
     </ng-container>
     <ng-container matColumnDef="hyperdrive_rating">
       <mat-header-cell *matHeaderCellDef> Hyperdrive rating</mat-header-cell>

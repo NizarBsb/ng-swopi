@@ -12,17 +12,9 @@
       <mat-header-cell *matHeaderCellDef> Consumables</mat-header-cell>
       <mat-cell *matCellDef="let vehicles"> {{vehicles.cost_in_credits}} </mat-cell>
     </ng-container>
-    <ng-container matColumnDef="created">
-      <mat-header-cell *matHeaderCellDef> Created</mat-header-cell>
-      <mat-cell *matCellDef="let vehicles"> {{vehicles.created}} </mat-cell>
-    </ng-container>
     <ng-container matColumnDef="crew">
       <mat-header-cell *matHeaderCellDef> Crew</mat-header-cell>
       <mat-cell *matCellDef="let vehicles"> {{vehicles.crew}} </mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="edited">
-      <mat-header-cell *matHeaderCellDef> Edited</mat-header-cell>
-      <mat-cell *matCellDef="let vehicles"> {{vehicles.edited}} </mat-cell>
     </ng-container>
     <ng-container matColumnDef="length">
       <mat-header-cell *matHeaderCellDef> length</mat-header-cell>

@@ -25,9 +25,7 @@ export class StarWarsService {
    * @returns {Observable<FilmModel[]>}
    */
   getFilms<T>() {
-    return this.httpClient.get<FilmModel[]>(`${this.swopiUrl}films/`).map(
-      data => data['results']
-    );
+    return this.httpClient.get<FilmModel[]>(`${this.swopiUrl}films/`);
   }
 
   /**

@@ -15,8 +15,6 @@ export class PeopleComponent {
 
   displayedColumns = [
     'birth_year',
-    'created',
-    'edited',
     'eye_color',
     'gender',
     'hair_color',

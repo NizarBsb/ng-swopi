@@ -15,9 +15,7 @@ export class PlanetsComponent {
 
   displayedColumns = [
     'climate',
-    'created',
     'diameter',
-    'edited',
     'gravity',
     'name',
     'orbital_period',
