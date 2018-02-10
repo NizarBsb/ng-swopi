@@ -1,9 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
-import { FilmModel } from './films/film.model';
-import { PeopleModel } from './people/people.model';
-import 'rxjs/add/operator/map';
 
 @Injectable()
 export class StarWarsService {
@@ -22,9 +19,9 @@ export class StarWarsService {
 
   /**
    * Fetch films from the API.
-   * @returns {Observable<FilmModel[]>}
+   * @returns {Observable<Object>}
    */
-  getFilms<T>() {
+  getFilms<FilmModel>() {
     return this.httpClient.get<FilmModel[]>(`${this.swopiUrl}films/`);
   }
 
@@ -32,30 +29,24 @@ export class StarWarsService {
    * Fetch people from the API.
    * @returns {Observable<Object>}
    */
-  public getPeople<T>() {
-    return this.httpClient.get<PeopleModel[]>(`${this.swopiUrl}people/`).map(
-      data => data['results']
-    );
+  public getPeople<PeopleModel>() {
+    return this.httpClient.get<PeopleModel[]>(`${this.swopiUrl}people/`);
   }
 
   /**
    * Fetch planets from the API.
    * @returns {Observable<Object>}
    */
-  public getPlanets<T>() {
-    return this.httpClient.get<T>(`${this.swopiUrl}planets/`).map(
-      data => data['results']
-    );
+  public getPlanets<PlanetModels>() {
+    return this.httpClient.get<PlanetModels>(`${this.swopiUrl}planets/`);
   }
 
   /**
    * Fetch species from the API.
    * @returns {Observable<Object>}
    */
-  public getSpecies<T>() {
-    return this.httpClient.get<T>(`${this.swopiUrl}species/`).map(
-      data => data['results']
-    )
+  public getSpecies<SpeciesModel>() {
+    return this.httpClient.get<SpeciesModel>(`${this.swopiUrl}species/`);
   }
 
   /**
@@ -63,19 +54,15 @@ export class StarWarsService {
    * @returns {Observable<Object>}
    */
   public getStarships<T>() {
-    return this.httpClient.get<T>(`${this.swopiUrl}starships/`).map(
-      data => data['results']
-    );
+    return this.httpClient.get<T>(`${this.swopiUrl}starships/`);
   }
 
   /**
    * Fetch vehicles from the API.
    * @returns {Observable<Object>}
    */
-  public getVehicles<T>() {
-    return this.httpClient.get<T>(`${this.swopiUrl}vehicles/`).map(
-      data => data['results']
-    );
+  public getVehicles<VehiclesModel>() {
+    return this.httpClient.get<VehiclesModel>(`${this.swopiUrl}vehicles/`);
   }
 
 }

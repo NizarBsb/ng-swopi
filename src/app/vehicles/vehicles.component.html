@@ -1,15 +1,15 @@
 <div>
   <mat-table [dataSource]="dataSource">
     <ng-container matColumnDef="cargo_capacity">
-      <mat-header-cell *matHeaderCellDef> MGLT</mat-header-cell>
+      <mat-header-cell *matHeaderCellDef> Cargo capacity</mat-header-cell>
       <mat-cell *matCellDef="let vehicles"> {{vehicles.cargo_capacity}} </mat-cell>
     </ng-container>
     <ng-container matColumnDef="consumables">
-      <mat-header-cell *matHeaderCellDef> Cargo capacity</mat-header-cell>
+      <mat-header-cell *matHeaderCellDef> Consumables</mat-header-cell>
       <mat-cell *matCellDef="let vehicles"> {{vehicles.consumables}} </mat-cell>
     </ng-container>
     <ng-container matColumnDef="cost_in_credits">
-      <mat-header-cell *matHeaderCellDef> Consumables</mat-header-cell>
+      <mat-header-cell *matHeaderCellDef> Cost in credits</mat-header-cell>
       <mat-cell *matCellDef="let vehicles"> {{vehicles.cost_in_credits}} </mat-cell>
     </ng-container>
     <ng-container matColumnDef="crew">
@@ -29,7 +29,7 @@
       <mat-cell *matCellDef="let vehicles"> {{vehicles.pilots}} </mat-cell>
     </ng-container>
     <ng-container matColumnDef="vehicle_class">
-      <mat-header-cell *matHeaderCellDef> Starship class</mat-header-cell>
+      <mat-header-cell *matHeaderCellDef> Vehicles class</mat-header-cell>
       <mat-cell *matCellDef="let vehicles"> {{vehicles.vehicle_class}} </mat-cell>
     </ng-container>
     <ng-container matColumnDef="url">

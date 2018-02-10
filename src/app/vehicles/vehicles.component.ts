@@ -3,6 +3,7 @@ import { StarWarsService } from '../star-wars.service';
 import { DataSource } from '@angular/cdk/collections';
 import { Observable } from 'rxjs/Observable';
 import { VehiclesModel } from './vehicles.model';
+import 'rxjs/add/operator/map';
 
 @Component({
   selector: 'app-vehicles',
@@ -44,7 +45,9 @@ export class VehiclesDataSource extends DataSource<any> {
   }
 
   connect(): Observable<VehiclesModel[]> {
-    return this.swService.getVehicles()
+    return this.swService.getVehicles().map(
+      data => data['results']
+    );
   }
 
   disconnect() {}
