@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { FilmDataSource, FilmsComponent } from './films.component';
+import { FilmsComponent } from './films.component';
 import { StarWarsService } from '../star-wars.service';
 import { HttpClientModule } from '@angular/common/http';
 import { MaterialModule } from '../material.module';
@@ -27,6 +27,15 @@ describe('FilmsComponentTest', () => {
 
   it('It should create Films component', () => {
     expect(component instanceof FilmsComponent).toBeTruthy();
+  });
+
+  it('It should call getFilms method successfully', async() => {
+    const service = TestBed.get(StarWarsService);
+    spyOn(service, 'getFilms');
+
+    fixture.whenStable().then(() => {
+      expect(service.getFilms).toHaveBeenCalled();
+    });
   });
 
 });

@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { StarWarsService } from '../star-wars.service';
 import { HttpClientModule } from '@angular/common/http';
 import { PeopleComponent } from './people.component';
+import { MaterialModule } from '../material.module';
 
 describe('PeopleComponentTest', () => {
   let component: PeopleComponent;
@@ -12,7 +13,7 @@ describe('PeopleComponentTest', () => {
       declarations: [
         PeopleComponent
       ],
-      imports: [ HttpClientModule ],
+      imports: [ HttpClientModule, MaterialModule ],
       providers: [ StarWarsService ]
     })
       .compileComponents();
@@ -28,13 +29,12 @@ describe('PeopleComponentTest', () => {
     expect(component instanceof PeopleComponent).toBeTruthy();
   });
 
-  it('It should call fetchPeople method', async() => {
-    const peopleFixture = TestBed.createComponent(PeopleComponent);
-    const peopleComponent = peopleFixture.debugElement.componentInstance;
-    spyOn(peopleComponent, 'fetchPeople');
+  it('It should call getPeople method successfully', async() => {
+    const service = TestBed.get(StarWarsService);
+    spyOn(service, 'getPeople');
 
     fixture.whenStable().then(() => {
-      expect(peopleComponent.fetchPeople).toHaveBeenCalled();
+      expect(service.getPeople).toHaveBeenCalled();
     });
   });
 

@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { StarWarsService } from '../star-wars.service';
 import { HttpClientModule } from '@angular/common/http';
 import { SpeciesComponent } from './species.component';
+import { MaterialModule } from '../material.module';
 
 describe('SpeciesComponentTest', () => {
   let component: SpeciesComponent;
@@ -12,7 +13,7 @@ describe('SpeciesComponentTest', () => {
       declarations: [
         SpeciesComponent
       ],
-      imports: [ HttpClientModule ],
+      imports: [ HttpClientModule, MaterialModule ],
       providers: [ StarWarsService ]
     })
       .compileComponents();
@@ -28,14 +29,13 @@ describe('SpeciesComponentTest', () => {
     expect(component instanceof SpeciesComponent).toBeTruthy();
   });
 
-  it('It should call fetchSpecies method', async() => {
-    const speciesFixture = TestBed.createComponent(SpeciesComponent);
-    const speciesComponent = speciesFixture.debugElement.componentInstance;
-    spyOn(speciesComponent, 'fetchSpecies');
+  it('It should call getSpecies method successfully', async() => {
+    const service = TestBed.get(StarWarsService);
+    spyOn(service, 'getSpecies');
 
     fixture.whenStable().then(() => {
-      expect(speciesComponent.fetchSpecies).toHaveBeenCalled();
+      expect(service.getSpecies).toHaveBeenCalled();
     });
-  });
+  })
 
 });
