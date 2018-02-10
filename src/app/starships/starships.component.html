@@ -1,3 +1,70 @@
-<p>
-  starships works!
-</p>
+<div>
+  <mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="MGLT">
+      <mat-header-cell *matHeaderCellDef> MGLT</mat-header-cell>
+      <mat-cell *matCellDef="let starships"> {{starships.MGLT}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="cargo_capacity">
+      <mat-header-cell *matHeaderCellDef> Cargo capacity</mat-header-cell>
+      <mat-cell *matCellDef="let starships"> {{starships.cargo_capacity}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="consumables">
+      <mat-header-cell *matHeaderCellDef> Consumables</mat-header-cell>
+      <mat-cell *matCellDef="let starships"> {{starships.classification}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="created">
+      <mat-header-cell *matHeaderCellDef> Created</mat-header-cell>
+      <mat-cell *matCellDef="let starships"> {{starships.created}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="crew">
+      <mat-header-cell *matHeaderCellDef> Crew</mat-header-cell>
+      <mat-cell *matCellDef="let starships"> {{starships.crew}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="edited">
+      <mat-header-cell *matHeaderCellDef> Edited</mat-header-cell>
+      <mat-cell *matCellDef="let starships"> {{starships.edited}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="hyperdrive_rating">
+      <mat-header-cell *matHeaderCellDef> Hyperdrive rating</mat-header-cell>
+      <mat-cell *matCellDef="let starships"> {{starships.hyperdrive_rating}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="length">
+      <mat-header-cell *matHeaderCellDef> length</mat-header-cell>
+      <mat-cell *matCellDef="let starships"> {{starships.length}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="manufacturer">
+      <mat-header-cell *matHeaderCellDef> Manufacturer</mat-header-cell>
+      <mat-cell *matCellDef="let starships"> {{starships.manufacturer}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="max_atmosphering_speed">
+      <mat-header-cell *matHeaderCellDef> Max atmosphering speed</mat-header-cell>
+      <mat-cell *matCellDef="let starships"> {{starships.max_atmosphering_speed}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="model">
+      <mat-header-cell *matHeaderCellDef> Model</mat-header-cell>
+      <mat-cell *matCellDef="let starships"> {{starships.model}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef> Name</mat-header-cell>
+      <mat-cell *matCellDef="let starships"> {{starships.name}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="passengers">
+      <mat-header-cell *matHeaderCellDef> Passengers</mat-header-cell>
+      <mat-cell *matCellDef="let starships"> {{starships.passengers}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="pilots">
+      <mat-header-cell *matHeaderCellDef> Pilots</mat-header-cell>
+      <mat-cell *matCellDef="let starships"> {{starships.pilots}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="starship_class">
+      <mat-header-cell *matHeaderCellDef> Starship class</mat-header-cell>
+      <mat-cell *matCellDef="let starships"> {{starships.starship_class}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="url">
+      <mat-header-cell *matHeaderCellDef> URL</mat-header-cell>
+      <mat-cell *matCellDef="let starships"> {{starships.url}} </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row;columns: displayedColumns;"></mat-row>
+  </mat-table>
+</div>

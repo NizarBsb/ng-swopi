@@ -45,7 +45,9 @@ export class StarWarsService {
    * @returns {Observable<Object>}
    */
   public getPlanets<T>() {
-    return this.httpClient.get<T>(`${this.swopiUrl}planets/`);
+    return this.httpClient.get<T>(`${this.swopiUrl}planets/`).map(
+      data => data['results']
+    );
   }
 
   /**
@@ -53,7 +55,9 @@ export class StarWarsService {
    * @returns {Observable<Object>}
    */
   public getSpecies<T>() {
-    return this.httpClient.get<T>(`${this.swopiUrl}species/`);
+    return this.httpClient.get<T>(`${this.swopiUrl}species/`).map(
+      data => data['results']
+    )
   }
 
   /**
@@ -61,7 +65,9 @@ export class StarWarsService {
    * @returns {Observable<Object>}
    */
   public getStarships<T>() {
-    return this.httpClient.get<T>(`${this.swopiUrl}starships/`);
+    return this.httpClient.get<T>(`${this.swopiUrl}starships/`).map(
+      data => data['results']
+    );
   }
 
   /**

@@ -1,3 +1,54 @@
-<p>
-  planets works!
-</p>
+<div>
+  <mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="climate">
+      <mat-header-cell *matHeaderCellDef> Climate </mat-header-cell>
+      <mat-cell *matCellDef="let planet"> {{planet.climate}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="created">
+      <mat-header-cell *matHeaderCellDef> Created </mat-header-cell>
+      <mat-cell *matCellDef="let planet"> {{planet.created}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="diameter">
+      <mat-header-cell *matHeaderCellDef> Diameter </mat-header-cell>
+      <mat-cell *matCellDef="let planet"> {{planet.diameter}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="edited">
+      <mat-header-cell *matHeaderCellDef> Edited</mat-header-cell>
+      <mat-cell *matCellDef="let planet"> {{planet.edited}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="gravity">
+      <mat-header-cell *matHeaderCellDef> Gravity</mat-header-cell>
+      <mat-cell *matCellDef="let planet"> {{planet.gravity}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef> Name</mat-header-cell>
+      <mat-cell *matCellDef="let planet"> {{planet.name}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="orbital_period">
+      <mat-header-cell *matHeaderCellDef> Orbital period</mat-header-cell>
+      <mat-cell *matCellDef="let planet"> {{planet.orbital_period}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="population">
+      <mat-header-cell *matHeaderCellDef> Population</mat-header-cell>
+      <mat-cell *matCellDef="let planet"> {{planet.population}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="rotation_period">
+      <mat-header-cell *matHeaderCellDef> Rotation period</mat-header-cell>
+      <mat-cell *matCellDef="let planet"> {{planet.rotation_period}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="surface_water">
+      <mat-header-cell *matHeaderCellDef> Surface water</mat-header-cell>
+      <mat-cell *matCellDef="let planet"> {{planet.surface_water}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="terrain">
+      <mat-header-cell *matHeaderCellDef> Terrain</mat-header-cell>
+      <mat-cell *matCellDef="let planet"> {{planet.terrain}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="url">
+      <mat-header-cell *matHeaderCellDef> URL</mat-header-cell>
+      <mat-cell *matCellDef="let planet"> {{planet.url}} </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row;columns: displayedColumns;"></mat-row>
+  </mat-table>
+</div>

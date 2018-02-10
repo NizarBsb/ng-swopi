@@ -1,3 +1,58 @@
-<p>
-  species works!
-</p>
+<div>
+  <mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="average_height">
+      <mat-header-cell *matHeaderCellDef> Average height </mat-header-cell>
+      <mat-cell *matCellDef="let species"> {{species.average_height}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="average_lifespan">
+      <mat-header-cell *matHeaderCellDef> Average lifespan </mat-header-cell>
+      <mat-cell *matCellDef="let species"> {{species.average_lifespan}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="classification">
+      <mat-header-cell *matHeaderCellDef> Classification </mat-header-cell>
+      <mat-cell *matCellDef="let species"> {{species.classification}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="created">
+      <mat-header-cell *matHeaderCellDef> Created</mat-header-cell>
+      <mat-cell *matCellDef="let species"> {{species.created}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="designation">
+      <mat-header-cell *matHeaderCellDef> Designation</mat-header-cell>
+      <mat-cell *matCellDef="let species"> {{species.designation}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="edited">
+      <mat-header-cell *matHeaderCellDef> Edited</mat-header-cell>
+      <mat-cell *matCellDef="let species"> {{species.edited}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="eye_colors">
+      <mat-header-cell *matHeaderCellDef> Eye colors</mat-header-cell>
+      <mat-cell *matCellDef="let species"> {{species.eye_colors}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="hair_colors">
+      <mat-header-cell *matHeaderCellDef> Hair colors</mat-header-cell>
+      <mat-cell *matCellDef="let species"> {{species.hair_colors}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="homeworld">
+      <mat-header-cell *matHeaderCellDef> Homeworld</mat-header-cell>
+      <mat-cell *matCellDef="let species"> {{species.homeworld}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="language">
+      <mat-header-cell *matHeaderCellDef> Language</mat-header-cell>
+      <mat-cell *matCellDef="let species"> {{species.language}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef> Name</mat-header-cell>
+      <mat-cell *matCellDef="let species"> {{species.name}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="skin_colors">
+      <mat-header-cell *matHeaderCellDef> Skin colors</mat-header-cell>
+      <mat-cell *matCellDef="let species"> {{species.skin_colors}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="url">
+      <mat-header-cell *matHeaderCellDef> URL</mat-header-cell>
+      <mat-cell *matCellDef="let species"> {{species.url}} </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row;columns: displayedColumns;"></mat-row>
+  </mat-table>
+</div>

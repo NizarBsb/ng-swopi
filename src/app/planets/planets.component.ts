@@ -1,12 +1,32 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { StarWarsService } from '../star-wars.service';
+import { DataSource } from '@angular/cdk/collections';
+import { Observable } from 'rxjs/Observable';
+import { PlanetModel } from './planet.model';
 
 @Component({
   selector: 'app-planets',
   templateUrl: './planets.component.html',
   styleUrls: ['./planets.component.css']
 })
-export class PlanetsComponent implements OnInit {
+export class PlanetsComponent {
+
+  dataSource = new PlanetDataSource(this.swService);
+
+  displayedColumns = [
+    'climate',
+    'created',
+    'diameter',
+    'edited',
+    'gravity',
+    'name',
+    'orbital_period',
+    'population',
+    'rotation_period',
+    'surface_water',
+    'terrain',
+    'url'
+  ];
 
   /**
    * Constructor.
@@ -14,16 +34,22 @@ export class PlanetsComponent implements OnInit {
    */
   constructor(private swService: StarWarsService) { }
 
-  ngOnInit() {
-    this.fetchPlanets();
-  }
+}
+
+export class PlanetDataSource extends DataSource<any> {
 
   /**
-   * Called once the view is initialized
-   * to fetch the planets.
+   * Constructor.
+   * @param {StarWarsService} swService
    */
-  fetchPlanets() {
-    this.swService.getPlanets().subscribe((response) => {
-    });
+  constructor(private swService: StarWarsService) {
+    super();
   }
+
+  connect(): Observable<PlanetModel[]> {
+    return this.swService.getPlanets()
+  }
+
+  disconnect() {}
+
 }
