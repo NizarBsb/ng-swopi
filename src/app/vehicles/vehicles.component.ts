@@ -1,12 +1,31 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { StarWarsService } from '../star-wars.service';
+import { DataSource } from '@angular/cdk/collections';
+import { Observable } from 'rxjs/Observable';
+import { VehiclesModel } from './vehicles.model';
 
 @Component({
   selector: 'app-vehicles',
   templateUrl: './vehicles.component.html',
   styleUrls: ['./vehicles.component.css']
 })
-export class VehiclesComponent implements OnInit {
+export class VehiclesComponent {
+
+  dataSource = new VehiclesDataSource(this.swService);
+
+  displayedColumns = [
+    'cargo_capacity',
+    'consumables',
+    'cost_in_credits',
+    'created',
+    'crew',
+    'edited',
+    'length',
+    'manufacturer',
+    'pilots',
+    'url',
+    'vehicle_class'
+  ];
 
   /**
    * Constructor.
@@ -14,17 +33,22 @@ export class VehiclesComponent implements OnInit {
    */
   constructor(private swService: StarWarsService) { }
 
-  ngOnInit() {
-    this.fetchVehicles();
-  }
+}
+
+export class VehiclesDataSource extends DataSource<any> {
 
   /**
-   * Called once the view is initialized
-   * to fetch the vehicles.
+   * Constructor.
+   * @param {StarWarsService} swService
    */
-  fetchVehicles() {
-    this.swService.getVehicles().subscribe((response) => {
-    })
+  constructor(private swService: StarWarsService) {
+    super();
   }
+
+  connect(): Observable<VehiclesModel[]> {
+    return this.swService.getVehicles()
+  }
+
+  disconnect() {}
 
 }

@@ -75,7 +75,9 @@ export class StarWarsService {
    * @returns {Observable<Object>}
    */
   public getVehicles<T>() {
-    return this.httpClient.get<T>(`${this.swopiUrl}vehicles/`);
+    return this.httpClient.get<T>(`${this.swopiUrl}vehicles/`).map(
+      data => data['results']
+    );
   }
 
 }
