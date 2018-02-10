@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { FilmModel } from './films/film.model';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class StarWarsService {
@@ -22,8 +23,10 @@ export class StarWarsService {
    * Fetch films from the API.
    * @returns {Observable<FilmModel[]>}
    */
-  getFilms(): Observable<FilmModel[]> {
-    return this.httpClient.get<FilmModel[]>(`${this.swopiUrl}films/`);
+  getFilms<T>() {
+    return this.httpClient.get<FilmModel[]>(`${this.swopiUrl}films/`).map(
+      data => data['results']
+    );
   }
 
   /**
@@ -31,7 +34,7 @@ export class StarWarsService {
    * @returns {Observable<Object>}
    */
   public getPeople<T>() {
-    return this.httpClient.get<T>(`${this.swopiUrl}people/`);
+    return this.httpClient.get<FilmModel[]>(`${this.swopiUrl}people/`);
   }
 
   /**
