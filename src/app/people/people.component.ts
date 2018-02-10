@@ -1,12 +1,32 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { StarWarsService } from '../star-wars.service';
+import { DataSource } from '@angular/cdk/collections';
+import { Observable } from 'rxjs/Observable';
+import { PeopleModel } from './people.model';
 
 @Component({
   selector: 'app-people',
   templateUrl: './people.component.html',
   styleUrls: ['./people.component.css']
 })
-export class PeopleComponent implements OnInit {
+export class PeopleComponent {
+
+  dataSource = new PeopleDataSource(this.swService);
+
+  displayedColumns = [
+    'birth_year',
+    'created',
+    'edited',
+    'eye_color',
+    'gender',
+    'hair_color',
+    'height',
+    'homeworld',
+    'mass',
+    'name',
+    'skin_color',
+    'url'
+  ];
 
   /**
    * Constructor.
@@ -14,16 +34,22 @@ export class PeopleComponent implements OnInit {
    */
   constructor(private swService: StarWarsService) { }
 
-  ngOnInit() {
-    this.fetchPeople();
-  }
+}
+
+export class PeopleDataSource extends DataSource<any> {
 
   /**
-   * Called once the view is initialized
-   * to fetch the people.
+   * Constructor.
+   * @param {StarWarsService} swService
    */
-  fetchPeople() {
-    this.swService.getPeople().subscribe((response) => {
-    });
+  constructor(private swService: StarWarsService) {
+    super();
   }
+
+  connect(): Observable<PeopleModel[]> {
+    return this.swService.getPeople()
+  }
+
+  disconnect() {}
+
 }

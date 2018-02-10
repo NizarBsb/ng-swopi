@@ -1,3 +1,54 @@
-<p>
-  people works!
-</p>
+<div>
+  <mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="birth_year">
+      <mat-header-cell *matHeaderCellDef> Birthday </mat-header-cell>
+      <mat-cell *matCellDef="let people"> {{people.birth_year}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="created">
+      <mat-header-cell *matHeaderCellDef> Created </mat-header-cell>
+      <mat-cell *matCellDef="let people"> {{people.created}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="edited">
+      <mat-header-cell *matHeaderCellDef> Edited </mat-header-cell>
+      <mat-cell *matCellDef="let people"> {{people.edited}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="eye_color">
+      <mat-header-cell *matHeaderCellDef> Eye color</mat-header-cell>
+      <mat-cell *matCellDef="let people"> {{people.eye_color}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="gender">
+      <mat-header-cell *matHeaderCellDef> Gender</mat-header-cell>
+      <mat-cell *matCellDef="let people"> {{people.gender}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="hair_color">
+      <mat-header-cell *matHeaderCellDef> Hair color</mat-header-cell>
+      <mat-cell *matCellDef="let people"> {{people.hair_color}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="height">
+      <mat-header-cell *matHeaderCellDef> Height</mat-header-cell>
+      <mat-cell *matCellDef="let people"> {{people.height}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="homeworld">
+      <mat-header-cell *matHeaderCellDef> Homeworld</mat-header-cell>
+      <mat-cell *matCellDef="let people"> {{people.homeworld}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="mass">
+      <mat-header-cell *matHeaderCellDef> Mass</mat-header-cell>
+      <mat-cell *matCellDef="let people"> {{people.mass}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef> Name</mat-header-cell>
+      <mat-cell *matCellDef="let people"> {{people.name}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="skin_color">
+      <mat-header-cell *matHeaderCellDef> Skin color</mat-header-cell>
+      <mat-cell *matCellDef="let people"> {{people.skin_color}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="url">
+      <mat-header-cell *matHeaderCellDef> URL</mat-header-cell>
+      <mat-cell *matCellDef="let people"> {{people.url}} </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row;columns: displayedColumns;"></mat-row>
+  </mat-table>
+</div>
