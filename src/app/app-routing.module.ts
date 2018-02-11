@@ -8,6 +8,7 @@ import {  StarshipsComponent} from './starships/starships.component';
 import { VehiclesComponent } from './vehicles/vehicles.component';
 
 export const routes: Routes = [
+  { path: '', component: FilmsComponent },
   { path: 'films', component: FilmsComponent },
   { path: 'people', component: PeopleComponent },
   { path: 'planets', component: PlanetsComponent },

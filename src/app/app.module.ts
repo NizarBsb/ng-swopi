@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 import { routes } from './app-routing.module';
 import { RouterModule } from '@angular/router';
@@ -16,8 +16,13 @@ import { PlanetsComponent } from './planets/planets.component';
 import { SpeciesComponent } from './species/species.component';
 import { StarshipsComponent } from './starships/starships.component';
 import { VehiclesComponent } from './vehicles/vehicles.component';
+import { HttpResponseErrorHandlerComponent } from './http-response-error-handler/http-response-error-handler.component';
 
 import { StarWarsService } from './star-wars.service';
+import { HttpResponseInterceptorService } from './http-response-interceptor.service';
+
+import { MatDialog, MatDialogModule, MatDialogRef } from '@angular/material';
+import { MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -27,7 +32,8 @@ import { StarWarsService } from './star-wars.service';
     PlanetsComponent,
     SpeciesComponent,
     StarshipsComponent,
-    VehiclesComponent
+    VehiclesComponent,
+    HttpResponseErrorHandlerComponent
   ],
   imports: [
     BrowserModule,
@@ -35,9 +41,15 @@ import { StarWarsService } from './star-wars.service';
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    MatDialogModule
   ],
-  providers: [ StarWarsService ],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: HttpResponseInterceptorService, multi: true },
+    { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: { hasBackdrop: true } },
+    StarWarsService,
+  ],
+  entryComponents: [ HttpResponseErrorHandlerComponent ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
