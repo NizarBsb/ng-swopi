@@ -37,6 +37,6 @@ describe('StarshipsComponentTest', () => {
     fixture.whenStable().then(() => {
       expect(service.getStarships).toHaveBeenCalled();
     });
-  })
+  });
 
 });

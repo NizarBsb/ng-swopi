@@ -45,9 +45,7 @@ export class VehiclesDataSource extends DataSource<any> {
   }
 
   connect(): Observable<VehiclesModel[]> {
-    return this.swService.getVehicles().map(
-      data => data['results']
-    );
+    return this.swService.getVehicles().map(data => data['results']);
   }
 
   disconnect() {}

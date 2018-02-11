@@ -50,9 +50,7 @@ export class StarshipsDataSource extends DataSource<any> {
   }
 
   connect(): Observable<StarshipsModel[]> {
-    return this.swService.getStarships().map(
-      data => data['results']
-    );
+    return this.swService.getStarships().map(data => data['results']);
   }
 
   disconnect() {}

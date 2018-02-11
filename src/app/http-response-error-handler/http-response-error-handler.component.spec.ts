@@ -1,24 +1,28 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HttpResponseErrorHandlerComponent } from './http-response-error-handler.component';
-import { MatDialog, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
-import {MaterialModule} from '../material.module';
+import { MatDialogRef } from '@angular/material/dialog';
+import { MaterialModule } from '../material.module';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserDynamicTestingModule } from '@angular/platform-browser-dynamic/testing';
 
 describe('HttpResponseErrorHandlerComponentTest', () => {
   let component: HttpResponseErrorHandlerComponent;
   let fixture: ComponentFixture<HttpResponseErrorHandlerComponent>;
 
   beforeEach(async(() => {
-    const matDialogRefStub = {};
-
     TestBed.configureTestingModule({
       declarations: [ HttpResponseErrorHandlerComponent ],
-      imports: [ MaterialModule ],
+      imports: [ MaterialModule, NoopAnimationsModule ],
       providers: [ { provide: MatDialogRef, useValue: {} } ],
-
-    })
-      .compileComponents();
+    }).compileComponents();
   }));
+
+  TestBed.overrideModule(BrowserDynamicTestingModule, {
+    set: {
+      entryComponents: [HttpResponseErrorHandlerComponent],
+    },
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(HttpResponseErrorHandlerComponent);
@@ -27,6 +31,7 @@ describe('HttpResponseErrorHandlerComponentTest', () => {
   });
 
   it('It should create HttpResponseErrorHandlerComponent', () => {
-    expect(component).toBeTruthy();
+    expect(component instanceof HttpResponseErrorHandlerComponent).toBeTruthy();
   });
+
 });

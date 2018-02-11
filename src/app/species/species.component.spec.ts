@@ -36,6 +36,6 @@ describe('SpeciesComponentTest', () => {
     fixture.whenStable().then(() => {
       expect(service.getSpecies).toHaveBeenCalled();
     });
-  })
+  });
 
 });

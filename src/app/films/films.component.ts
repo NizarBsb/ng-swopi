@@ -43,9 +43,7 @@ export class FilmDataSource extends DataSource<any> {
   }
 
   connect(): Observable<FilmModel[]> {
-    return this.swService.getFilms().map(
-      data => data['results']
-    );
+    return this.swService.getFilms().map(data => data['results']);
   }
 
   disconnect() {}

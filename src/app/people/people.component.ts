@@ -46,9 +46,7 @@ export class PeopleDataSource extends DataSource<any> {
   }
 
   connect(): Observable<PeopleModel[]> {
-    return this.swService.getPeople().map(
-      data => data['results']
-    );
+    return this.swService.getPeople().map(data => data['results']);
   }
 
   disconnect() {}

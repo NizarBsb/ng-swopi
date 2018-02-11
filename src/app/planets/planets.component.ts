@@ -46,9 +46,7 @@ export class PlanetDataSource extends DataSource<any> {
   }
 
   connect(): Observable<PlanetModel[]> {
-    return this.swService.getPlanets().map(
-      data => data['results']
-    );
+    return this.swService.getPlanets().map(data => data['results']);
   }
 
   disconnect() {}

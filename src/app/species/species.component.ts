@@ -47,9 +47,7 @@ export class SpeciesDataSource extends DataSource<any> {
   }
 
   connect(): Observable<SpeciesModel[]> {
-    return this.swService.getSpecies().map(
-      data => data['results']
-    )
+    return this.swService.getSpecies().map(data => data['results']);
   }
 
   disconnect() {}

@@ -10,6 +10,7 @@ export class HttpResponseErrorHandlerComponent {
 
   /**
    * Constructor.
+   * @param {MatDialogRef<HttpResponseErrorHandlerComponent>} dialogRef
    */
   constructor(public dialogRef: MatDialogRef<HttpResponseErrorHandlerComponent>) {}
 
